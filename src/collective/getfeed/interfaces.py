@@ -8,6 +8,11 @@ class ICollectivegetfeedCoreLayer(IDefaultBrowserLayer):
     """Marker interface that defines a browser layer."""
 
 
-class IHomepage(model.Schema):
-    """ Homepage content type interface
+class IFeed(model.Schema):
+    """ Feed content type interface
+    """
+
+
+class IFeedItem(model.Schema):
+    """ Feed Item content type interface
     """

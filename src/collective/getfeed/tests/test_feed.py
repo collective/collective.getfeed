@@ -7,7 +7,7 @@ from plone.dexterity.interfaces import IDexterityFTI
 from plone import api
 
 from collective.getfeed.testing import COLLECTIVEGETFEED_CORE_INTEGRATION_TESTING  # noqa
-from collective.getfeed.interfaces import IHomepage
+from collective.getfeed.interfaces import IFeed
 
 import unittest
 
@@ -21,26 +21,29 @@ class KontaktIntegrationTest(unittest.TestCase):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         self.installer = api.portal.get_tool('portal_quickinstaller')
-        fti = queryUtility(IDexterityFTI, name='Homepage')
+        fti = queryUtility(IDexterityFTI, name='Feed')
         fti.global_allow = True
 
     def test_schema(self):
-        fti = queryUtility(IDexterityFTI, name='Homepage')
+        fti = queryUtility(IDexterityFTI, name='Feed')
         schema = fti.lookupSchema()
-        self.assertEqual(IHomepage, schema)
+        self.assertEqual(IFeed, schema)
 
     def test_fti(self):
-        fti = queryUtility(IDexterityFTI, name='Homepage')
+        fti = queryUtility(IDexterityFTI, name='Feed')
         self.assertTrue(fti)
 
     def test_factory(self):
-        fti = queryUtility(IDexterityFTI, name='Homepage')
+        fti = queryUtility(IDexterityFTI, name='Feed')
         factory = fti.factory
         obj = createObject(factory)
-        self.assertTrue(IHomepage.providedBy(obj))
+        self.assertTrue(IFeed.providedBy(obj))
 
     def test_adding(self):
-        self.portal.invokeFactory('Homepage', 'Homepage')
+        self.portal.invokeFactory('Feed', 'feed')
+        feed = self.portal['feed']
+        feed_item_fti = queryUtility(IDexterityFTI, name='Feed Item')
+        self.assertIn(feed_item_fti, feed.allowedContentTypes())
         self.assertTrue(
-            IHomepage.providedBy(self.portal['Homepage'])
+            IFeed.providedBy(feed)
         )
