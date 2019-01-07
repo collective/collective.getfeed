@@ -1,0 +1,5 @@
+====================
+collectivegetfeed
+====================
+
+User documentation
