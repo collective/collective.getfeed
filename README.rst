@@ -6,13 +6,15 @@
 collective.getfeed
 ==============================================================================
 
-.. image:: https://kitconcept.com/logo.svg
-   :alt: kitconcept
-   :target: https://kitconcept.com/
+.. image:: https://raw.github.com/collective/collective.getfeed/master/docs/forContent.png
+   :alt: forContent
+   :target: https://www.forcontent.com.br/
 
 
 .. image:: https://secure.travis-ci.org/collective/collective.getfeed.png
     :target: http://travis-ci.org/collective/collective.getfeed
+
+Integrate Plone with other websites through feeds.
 
 Development
 -----------

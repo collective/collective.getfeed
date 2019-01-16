@@ -1,4 +1,5 @@
 Contributors
 ============
 
-- kitconcept GmbH, info@kitconcept.com
+- forContent
+- Rodrigo Ferreira de Souza
