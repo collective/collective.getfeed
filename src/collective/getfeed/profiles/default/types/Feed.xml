@@ -14,8 +14,8 @@
       name="description"></property>
 
   <property name="allow_discussion">False</property>
+  <property name="content_icon">++resource++collective.getfeed/feed.svg</property>
   <property name="factory">Feed</property>
-  <property name="icon_expr"></property>
   <property name="link_target"></property>
 
   <!-- Hierarchy control -->
@@ -35,10 +35,8 @@
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">
     <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-    <element value="plone.app.contenttypes.behaviors.richtext.IRichText"/>
     <element value="plone.app.content.interfaces.INameFromTitle"/>
     <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
-    <element value="plone.app.dexterity.behaviors.id.IShortName"/>
   </property>
 
   <!-- View information -->

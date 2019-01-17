@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """Module where all interfaces, events and exceptions live."""
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+from collective.getfeed import _
 from plone.supermodel import model
+from zope import schema
+from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 
 class ICollectivegetfeedCoreLayer(IDefaultBrowserLayer):
@@ -9,10 +11,14 @@ class ICollectivegetfeedCoreLayer(IDefaultBrowserLayer):
 
 
 class IFeed(model.Schema):
-    """ Feed content type interface
-    """
+    """Feed content type interface."""
+
+    url = schema.TextLine(
+        title=_(u'URL'),
+        description=_(u'The Feed address (url) to this blog.'),
+        required=True,
+    )
 
 
 class IFeedItem(model.Schema):
-    """ Feed Item content type interface
-    """
+    """Feed Item content type interface."""

@@ -1,5 +1,5 @@
 ====================
-collectivegetfeed
+collective.getfeed
 ====================
 
 User documentation

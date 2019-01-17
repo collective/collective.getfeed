@@ -16,7 +16,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="collective.getfeed site (collective.getfeed)"
+      title="Get Feed (collective.getfeed)"
       directory="profiles/default"
       description="Installs the collective.getfeed add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -25,7 +25,7 @@
 
   <genericsetup:registerProfile
       name="uninstall"
-      title="collective.getfeed site (collective.getfeed): uninstall"
+      title="Get Feed (collective.getfeed): uninstall"
       directory="profiles/uninstall"
       description="Uninstalls the collective.getfeed add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"

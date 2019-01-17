@@ -8,13 +8,31 @@
   <include package="z3c.jbot" file="meta.zcml" />
   <browser:jbot
       directory="overrides"
-      layer="collective.getfeed.interfaces.ICollectivegetfeedCoreLayer"
+      layer="..interfaces.ICollectivegetfeedCoreLayer"
       />
 
   <!-- Publish static files -->
   <browser:resourceDirectory
-      name="collectivegetfeed"
+      name="collective.getfeed"
       directory="static"
+      />
+
+  <browser:page
+      name="view"
+      for="..interfaces.IFeed"
+      class=".FeedView"
+      template="feed.pt"
+      permission="zope2.View"
+      layer="..interfaces.ICollectivegetfeedCoreLayer"
+      />
+
+  <browser:page
+      name="view"
+      for="..interfaces.IFeedItem"
+      class=".FeedItemView"
+      template="feed_item.pt"
+      permission="zope2.View"
+      layer="..interfaces.ICollectivegetfeedCoreLayer"
       />
 
 </configure>

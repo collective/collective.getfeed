@@ -40,7 +40,12 @@ class KontaktIntegrationTest(unittest.TestCase):
         self.assertTrue(IFeedItem.providedBy(obj))
 
     def test_adding(self):
-        self.portal.invokeFactory('Feed Item', 'feeditem')
-        self.assertTrue(
-            IFeedItem.providedBy(self.portal['feeditem'])
-        )
+        feeditem = api.content.create(
+            container=self.portal, type='Feed Item', id='feeditem')
+        self.assertTrue(IFeedItem.providedBy(feeditem))
+
+    def test_allowed_content_types(self):
+        feeditem = api.content.create(
+            container=self.portal, type='Feed Item', id='feeditem')
+        feed_item_fti = queryUtility(IDexterityFTI, name='Image')
+        self.assertIn(feed_item_fti, feeditem.allowedContentTypes())

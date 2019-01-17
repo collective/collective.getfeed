@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from .interfaces import IFeed
-from .interfaces import IFeedItem
+from collective.getfeed.interfaces import IFeed
+from collective.getfeed.interfaces import IFeedItem
 from plone.dexterity.content import Container
 from zope.interface import implementer
 

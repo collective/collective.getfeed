@@ -39,3 +39,8 @@ Run Unit / Integration Tests::
 Run Robot Framework based acceptance tests::
 
   make test-acceptance
+
+Credits
+-------
+
+* This project icon uses The Font Awesome pictograms are licensed under the CC BY 3.0 License https://creativecommons.org/licenses/by/3.0/

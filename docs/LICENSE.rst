@@ -1,4 +1,4 @@
-collectivegetfeed Copyright 2018, forContent
+collective.getfeed Copyright 2018, forContent
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License version 2
