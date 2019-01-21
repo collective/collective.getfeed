@@ -7,9 +7,9 @@ from zope.interface import implementer
 
 @implementer(IFeed)
 class Feed(Container):
-  """"""
+  """The Feed object"""
 
 
 @implementer(IFeedItem)
 class FeedItem(Container):
-  """"""
+  """The Feed Item object."""
