@@ -8,12 +8,14 @@ from lxml.cssselect import CSSSelector
 from plone import api
 from plone.app.textfield.value import RichTextValue
 from plone.namedfile.file import NamedBlobImage
+from plone.protect.interfaces import IDisableCSRFProtection
 from Products.CMFPlone.utils import _createObjectByType
 from Products.Five.browser import BrowserView
 from urllib2 import Request
 from urllib2 import URLError
 from urllib2 import urlopen
 from zope.component import getMultiAdapter
+from zope.interface import alsoProvides
 
 import feedparser
 import htmlentitydefs
@@ -232,6 +234,7 @@ class GetFeedsView(BrowserView):
     def __call__(self):
         if api.user.is_anonymous():
             return
+        alsoProvides(self.request, IDisableCSRFProtection)
         response = self.request.response
         response.setHeader('content-type', 'application/json')
         return response.setBody(json.dumps(self.execute()))
