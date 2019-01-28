@@ -34,4 +34,12 @@
       layer="..interfaces.ICollectivegetfeedCoreLayer"
       />
 
+  <browser:page
+      name="get-all-feeds"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".getfeeds.GetAllFeedsView"
+      permission="zope2.View"
+      layer="..interfaces.ICollectivegetfeedCoreLayer"
+      />
+
 </configure>

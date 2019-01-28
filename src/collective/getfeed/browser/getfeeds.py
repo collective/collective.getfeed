@@ -36,6 +36,7 @@ HDR = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML,
 
 
 class GetFeedsView(BrowserView):
+    """Process feeds."""
 
     def unescape(self, text):
         def fixup(m):
@@ -59,9 +60,6 @@ class GetFeedsView(BrowserView):
         return re.sub("&#?\w+;", fixup, text)
 
     def _feedItemsToNews(self, item, feedName):
-        ''' Processa um item e retorna um dicionario contendo os campos de
-            um News Item
-        '''
         if not item:
             return
         portal = api.portal.get()
@@ -130,7 +128,7 @@ class GetFeedsView(BrowserView):
         return dictNews
 
     def _image_from_body(self, text):
-        ''' Get the first image from entry body '''
+        """ Get the first image from entry body """
         if not text:
             return None
         dom = lxml.html.fromstring(text)
@@ -151,7 +149,7 @@ class GetFeedsView(BrowserView):
             return (data, content_type)
 
     def _objFromUID(self, uid):
-        ''' Return a object from an UID '''
+        """ Return a object from an UID """
         ct = self._ct
         results = ct.searchResults(UID=uid)
         if results:
@@ -159,7 +157,7 @@ class GetFeedsView(BrowserView):
             return obj
 
     def create_entry(self, folder, dictNews):
-        ''' Cria news item, realiza transição '''
+        """ Create item """
         oId = str(dictNews.get('id'))
         if oId not in folder.objectIds():
             _createObjectByType('Feed Item', folder, id=oId,
@@ -193,7 +191,7 @@ class GetFeedsView(BrowserView):
         return o
 
     def execute(self):
-        ''' Process feeds, create objects '''
+        """ Process feeds, create objects """
         summary = {'feeds': 0, 'entries': 0}
         summary['feeds'] = 1
         feedName = self.context.Title()
@@ -229,6 +227,40 @@ class GetFeedsView(BrowserView):
             if itemsDates:
                 # Registra nova data
                 itemsDates.sort()
+        return summary
+
+    def __call__(self):
+        if api.user.is_anonymous():
+            return
+        alsoProvides(self.request, IDisableCSRFProtection)
+        response = self.request.response
+        response.setHeader('content-type', 'application/json')
+        return response.setBody(json.dumps(self.execute()))
+
+
+class GetAllFeedsView(BrowserView):
+    """Process all feeds."""
+
+    def execute(self):
+        summary = {'feeds': 0, 'entries': 0}
+        catalog = api.portal.get_tool('portal_catalog')
+        query = dict(
+            portal_type='Feed',
+            review_state='published'
+        )
+        results = catalog.searchResults(**query)
+        inicio = datetime.now()
+        logger.info('Start {0}'.format(inicio.strftime('%Y-%m-%d %H:%M:%S')))
+        for brain in results:
+            blog = brain.getObject()
+            view = blog.restrictedTraverse('@@get-feeds')
+            summary_feed = view.execute()
+            summary['feeds'] += summary_feed['feeds']
+            summary['entries'] += summary_feed['entries']
+            logger.info('{}, {}'.format(blog.Title(), summary_feed))
+        transaction.commit()
+        termino = datetime.now()
+        logger.info('Take {0} segunds'.format((termino - inicio).seconds))
         return summary
 
     def __call__(self):
