@@ -46,6 +46,7 @@ Configuration
 Add a new instance to be called with clock-server to update all feeds automatically:
 
 .. code-block:: ini
+
     [buildout]
     parts +=
         instance-feeds
