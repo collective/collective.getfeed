@@ -3,6 +3,7 @@ from collective.getfeed.interfaces import IFeed
 from collective.getfeed.interfaces import IFeedItem
 from plone.dexterity.content import Container
 from zope.interface import implementer
+from Products.CMFCore.interfaces._content import IFolderish
 
 
 @implementer(IFeed)

@@ -17,20 +17,19 @@
       directory="static"
       />
 
-  <browser:page
-      name="view"
-      for="..interfaces.IFeed"
-      class=".FeedView"
-      template="feed.pt"
-      permission="zope2.View"
-      layer="..interfaces.ICollectivegetfeedCoreLayer"
-      />
+  <!-- <browser:page -->
+  <!--     name="view" -->
+  <!--     for="..interfaces.IFeed" -->
+  <!--     class=".FeedView" -->
+  <!--     template="feed.pt" -->
+  <!--     permission="zope2.View" -->
+  <!--     layer="..interfaces.ICollectivegetfeedCoreLayer" -->
+  <!--     /> -->
 
   <browser:page
-      name="view"
-      for="..interfaces.IFeedItem"
-      class=".FeedItemView"
-      template="feed_item.pt"
+      name="get-feeds"
+      for="..interfaces.IFeed"
+      class=".getfeeds.GetFeedsView"
       permission="zope2.View"
       layer="..interfaces.ICollectivegetfeedCoreLayer"
       />

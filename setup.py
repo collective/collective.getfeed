@@ -38,6 +38,8 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
+        'requests',
+        'feedparser',
         'plone.api',
         'Products.GenericSetup>=1.8.2',
         'setuptools',
@@ -48,6 +50,7 @@ setup(
     ],
     extras_require={
         'test': [
+            'httmock',
             'plone.app.testing',
             # Plone KGS does not use this version, because it would break
             # Remove if your package shall be part of coredev.

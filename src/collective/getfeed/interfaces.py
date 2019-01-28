@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module where all interfaces, events and exceptions live."""
 from collective.getfeed import _
+from plone.namedfile import field
 from plone.supermodel import model
 from zope import schema
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
@@ -22,3 +23,8 @@ class IFeed(model.Schema):
 
 class IFeedItem(model.Schema):
     """Feed Item content type interface."""
+
+    image = field.NamedBlobImage(
+        title=_(u'Image'),
+        required=False,
+    )
