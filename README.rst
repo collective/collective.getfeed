@@ -40,6 +40,24 @@ Run Robot Framework based acceptance tests::
 
   make test-acceptance
 
+Configuration
+-------------
+
+Add a new instance to be called with clock-server to update all feeds automatically:
+
+    [instance-feeds]
+    <=instance
+    port-base = 8
+    zodb-cache-size = 5000
+    zope-conf-additional =
+        <clock-server>
+           method /@@get-all-feeds
+           period 3600
+           user feed_user
+           password feed_password
+           host localhost:8088
+        </clock-server>
+
 Credits
 -------
 
