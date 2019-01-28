@@ -40,6 +40,24 @@ Run Robot Framework based acceptance tests::
 
   make test-acceptance
 
+Installation
+-------------
+
+To enable this product in a buildout-based installation:
+
+#. Edit your buildout.cfg and add ``collective.getfeed`` to the list of eggs to install::
+
+    [buildout]
+    ...
+    eggs =
+        collective.getfeed
+
+After updating the configuration you need to run ''bin/buildout'', which will take care of updating your system.
+
+Go to the 'Site Setup' page in a Plone site and click on the 'Add-ons' link.
+
+Check the box next to ``collective.getfeed`` and click the 'Activate' button.
+
 Configuration
 -------------
 
