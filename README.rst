@@ -45,6 +45,7 @@ Configuration
 
 Add a new instance to be called with clock-server to update all feeds automatically:
 
+
     [instance-feeds]
     <=instance
     port-base = 8
