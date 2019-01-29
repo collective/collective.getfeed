@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.0a2 (unreleased)
+1.0.0a2 (2019-01-29)
 --------------------
 
 - Fix MANIFEST.in to include zcml files.
