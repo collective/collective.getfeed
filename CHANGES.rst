@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.0a3 (unreleased)
+1.0.0a3 (2019-01-29)
 --------------------
 
 - Fix parse of description;
