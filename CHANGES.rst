@@ -5,7 +5,8 @@ Changelog
 1.0.0a5 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Redirect to original page when not logged in.
+  [rodfersou]
 
 
 1.0.0a4 (2019-01-29)

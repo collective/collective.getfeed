@@ -17,14 +17,16 @@
       directory="static"
       />
 
-  <!-- <browser:page -->
-  <!--     name="view" -->
-  <!--     for="..interfaces.IFeed" -->
-  <!--     class=".FeedView" -->
-  <!--     template="feed.pt" -->
-  <!--     permission="zope2.View" -->
-  <!--     layer="..interfaces.ICollectivegetfeedCoreLayer" -->
-  <!--     /> -->
+  <configure package="plone.dexterity.browser">
+    <browser:page
+        name="view"
+        for="collective.getfeed.interfaces.IFeedItem"
+        class="collective.getfeed.browser.FeedItemView"
+        template="item.pt"
+        permission="zope2.View"
+        layer="collective.getfeed.interfaces.ICollectivegetfeedCoreLayer"
+        />
+  </configure>
 
   <browser:page
       name="get-feeds"
