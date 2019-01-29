@@ -101,9 +101,11 @@ class GetFeedsView(BrowserView):
             # If we have multiple paragraphs, get just the first one
             description = [l.strip() for l in description.split('\n')
                            if l.strip()][0]
-        # dictNews['description'] = unescape(description).decode('utf-8')
+        dictNews['description'] = self.unescape(description).decode('utf-8')
         dictNews['text'] = text
         image = self._image_from_body(text)
+        if not image:
+            image = self._image_from_body(dictNews['description'])
         if image:
             dictNews['image'] = image
             dictNews['image_caption'] = ''

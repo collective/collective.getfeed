@@ -5,7 +5,9 @@ Changelog
 1.0.0a3 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Fix parse of description;
+- Try to get image from description if not found in body.
+  [rodfersou]
 
 
 1.0.0a2 (2019-01-29)
