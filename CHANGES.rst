@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.0a5 (unreleased)
+1.0.0a5 (2019-01-29)
 --------------------
 
 - Redirect to original page when not logged in.
