@@ -6,7 +6,12 @@ Changelog
 --------------------
 
 - Fix parse of description;
+  [rodfersou]
+
 - Try to get image from description if not found in body.
+  [rodfersou]
+
+- Add original url
   [rodfersou]
 
 

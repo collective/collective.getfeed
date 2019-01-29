@@ -28,3 +28,9 @@ class IFeedItem(model.Schema):
         title=_(u'Image'),
         required=False,
     )
+
+    url = schema.TextLine(
+        title=_(u'URL'),
+        description=_(u'The address of original url.'),
+        required=True,
+    )

@@ -123,7 +123,7 @@ class GetFeedsView(BrowserView):
         dictNews['effective_date'] = DateTime(
             effectiveDate and time.strftime('%Y-%m-%d %H:%M', effectiveDate))
         dictNews['anexos'] = item.get('enclosures', [])
-        dictNews['remoteUrl'] = item.get('feedburner_origlink',
+        dictNews['url'] = item.get('feedburner_origlink',
                                          item.get('link', ''))
         if not dictNews['id']:
             dictNews = None
