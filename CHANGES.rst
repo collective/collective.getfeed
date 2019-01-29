@@ -5,7 +5,8 @@ Changelog
 1.0.0a4 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Fix get image from description.
+  [rodfersou]
 
 
 1.0.0a3 (2019-01-29)

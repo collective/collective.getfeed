@@ -105,7 +105,8 @@ class GetFeedsView(BrowserView):
         dictNews['text'] = text
         image = self._image_from_body(text)
         if not image:
-            image = self._image_from_body(dictNews['description'])
+            # Try to get image from description
+            image = self._image_from_body(item.get('summary', ''))
         if image:
             dictNews['image'] = image
             dictNews['image_caption'] = ''
