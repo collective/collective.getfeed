@@ -75,7 +75,7 @@ Add a new instance to be called with clock-server to update all feeds automatica
     zodb-cache-size = 5000
     zope-conf-additional =
         <clock-server>
-           method /@@get-all-feeds
+           method /Plone/@@get-all-feeds
            period 3600
            user feed_user
            password feed_password
