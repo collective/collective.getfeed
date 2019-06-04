@@ -211,6 +211,7 @@ class GetFeedsView(BrowserView):
             logger.info(feed['bozo_exception'].message)
 
         if hasattr(feed, 'entries'):
+            old_entries = self.context.objectIds()
             items = feed.entries
             logger.info('Feed %s processed: %d items' %
                      (feedName, len(items)))
@@ -226,6 +227,12 @@ class GetFeedsView(BrowserView):
                 summary['entries'] = summary['entries'] + 1
                 itemsDates.append(date)
                 self.create_entry(self.context, dictNews)
+                try:
+                    old_entries.remove(str(dictNews.get('id')))
+                except ValueError:
+                    pass
+            for entry in old_entries:
+                api.content.delete(obj=self.context.get(entry))
 
             if itemsDates:
                 # Registra nova data

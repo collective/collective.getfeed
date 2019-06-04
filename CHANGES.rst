@@ -5,7 +5,8 @@ Changelog
 1.0.0a6 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Remove objects not listed into the feed.
+  [rodfersou]
 
 
 1.0.0a5 (2019-01-29)

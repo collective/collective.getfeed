@@ -81,3 +81,19 @@ class GetFeedsTestCase(BaseViewTestCase):
             results = self.view.execute()
         self.assertEqual(len(self.feed.objectIds()), 10)
         self.assertIsNotNone(self.feed.get('pororoca'))
+
+    def test_delete_unlisted_feed(self):
+        api.content.create(
+            container=self.feed,
+            type='Feed Item',
+            id='feed-item',
+            title='Feed title',
+            description='Feed description',
+        )
+        self.assertEqual(len(self.feed.objectIds()), 1)
+        with HTTMock(example1):
+            results = self.view.execute()
+        self.assertEqual(len(self.feed.objectIds()), 7)
+        self.assertIsNotNone(self.feed.get('sabonetes'))
+        self.assertIsNone(self.feed.get('feed-item'))
+
