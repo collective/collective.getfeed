@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.0a6 (unreleased)
+1.0.0a6 (2019-06-04)
 --------------------
 
 - Remove objects not listed into the feed.
