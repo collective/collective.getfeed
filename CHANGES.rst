@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.0a6 (unreleased)
+1.0.0a7 (unreleased)
 --------------------
 
 - Remove objects not listed into the feed.
