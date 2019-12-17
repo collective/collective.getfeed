@@ -11,6 +11,7 @@ from plone.namedfile.file import NamedBlobImage
 from plone.protect.interfaces import IDisableCSRFProtection
 from Products.CMFPlone.utils import _createObjectByType
 from Products.Five.browser import BrowserView
+from socket import error as SocketError
 from urllib2 import Request
 from urllib2 import URLError
 from urllib2 import urlopen
@@ -143,7 +144,7 @@ class GetFeedsView(BrowserView):
             req = Request(link.encode('utf-8'), headers=HDR)
             try:
                 fh = urlopen(req)
-            except URLError:
+            except (URLError, ValueError, SocketError):
                 # Not able to open the link
                 # return an empty image
                 return None
