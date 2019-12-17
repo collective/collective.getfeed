@@ -5,7 +5,8 @@ Changelog
 1.0.0a8 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Fixed issue on timeout error [lepri]
+- Improved error treatment on get images function [lepri]
 
 
 1.0.0a7 (2019-06-04)
