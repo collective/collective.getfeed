@@ -203,7 +203,7 @@ class GetFeedsView(BrowserView):
         try:
             resp = requests.get(self.context.url, timeout=10)
         except requests.ReadTimeout:
-            logger.warn("Timeout when reading RSS %s", self.contex.url)
+            logger.warn("Timeout when reading RSS %s", self.context.url)
             return
 
         content = BytesIO(resp.content)
